@@ -43,6 +43,9 @@ jobs:
   test:
     name: Test
     needs: [git-tag-check]
+    permissions:
+      contents: read
+      checks: write
     uses: ./.github/workflows/test.yml
 
   test-matrix:
