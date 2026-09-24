@@ -10,6 +10,9 @@ jobs:
   docs: 
     name: Build MkDocs
     runs-on: ubuntu-latest
+    # The default token can read the repo and cannot push the built site.
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - name: Deploy docs

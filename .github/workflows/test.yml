@@ -4,7 +4,12 @@ on:
   workflow_call:  # allow this workflow to be called from other workflows
   workflow_dispatch: # allow manual trigger
 
+# `checks: write` lets the pytest summary publish its result. Naming any
+# scope sets the others to none, so `contents: read` has to be listed too
+# or checkout is refused. Callers must grant both; the org token defaults
+# `checks` to none, which fails the run before it starts.
 permissions:
+  contents: read
   checks: write
 
 jobs:
